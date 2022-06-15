@@ -8,7 +8,6 @@ const userRouter = express.Router()
 
 const app = express()
 app.use(bodyParser.json())
-
 app.set('views', 'src/views')
 app.set('view engine', 'pug')
 
@@ -61,6 +60,7 @@ userRouter.post('/:id/nickname', (req, res) => {
 })
 
 app.use('/users', userRouter)
+app.use('/public', express.static('src/public'))
 
 app.get('/', (req, res) => {
   res.render('index', {
