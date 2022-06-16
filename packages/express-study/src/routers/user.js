@@ -54,6 +54,7 @@ router.get('/:id', (req, res) => {
       // @ts-ignore
       nickname: req.user.nickname,
       userId: req.params.id,
+      // @ts-ignore
       profileImageURL: `/uploads/${req.user.profileImageKey}`,
     })
   }
@@ -72,7 +73,7 @@ router.post('/:id/nickname', (req, res) => {
   res.send(USERS)
 })
 
-router.post('/:id/profile', upload.single('profile'), (req, res, next) => {
+router.post('/:id/profile', upload.single('profile'), (req, res) => {
   // @ts-ignore
   const { user } = req
   const { filename } = req.file

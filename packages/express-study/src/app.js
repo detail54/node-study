@@ -14,6 +14,7 @@ app.use('/users', userRouter)
 app.use('/public', express.static('src/public'))
 app.use('/uploads', express.static('uploads'))
 
+// eslint-disable-next-line no-unused-vars
 app.use((err, req, res, next) => {
   res.statusCode = err.statusCode || 500
   res.send(err.message)
