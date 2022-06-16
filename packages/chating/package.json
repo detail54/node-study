@@ -1,0 +1,16 @@
+{
+  "name": "chating",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "server": "nodemon src/main.js"
+  },
+  "dependencies": {
+    "koa": "^2.13.4",
+    "koa-pug": "^5.0.0",
+    "mongodb": "^4.7.0",
+    "nodemon": "^2.0.16",
+    "tailwindcss": "^3.1.3"
+  }
+}
