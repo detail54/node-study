@@ -6,6 +6,9 @@
   "scripts": {
     "server": "nodemon src/main.js"
   },
+  "engines": {
+    "node": "16.15.0"
+  },
   "dependencies": {
     "koa": "^2.13.4",
     "koa-mount": "^4.0.0",
