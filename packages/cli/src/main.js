@@ -27,19 +27,10 @@ program
     const result = await octokit.rest.issues.listForRepo({
       owner: 'detail54',
       repo: 'node-study',
+      labels: 'bug',
     })
 
-    const issuesWithBugLabel = result.data.filter(
-      (issue) =>
-        issue.labels.find((label) => label.name === 'bug') !== undefined
-    )
-
-    const output = issuesWithBugLabel.map((issue) => ({
-      title: issue.title,
-      number: issue.number,
-    }))
-
-    console.log(output)
+    console.log(result)
   })
 
 program
