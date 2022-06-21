@@ -28,7 +28,18 @@ program
       owner: 'detail54',
       repo: 'node-study',
     })
-    console.log(result)
+
+    const issuesWithBugLabel = result.data.filter(
+      (issue) =>
+        issue.labels.find((label) => label.name === 'bug') !== undefined
+    )
+
+    const output = issuesWithBugLabel.map((issue) => ({
+      title: issue.title,
+      number: issue.number,
+    }))
+
+    console.log(output)
   })
 
 program
