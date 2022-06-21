@@ -10,6 +10,9 @@ program.version('0.0.1')
 
 const octokit = new Octokit({ auth: GITHUB_ACCESS_TOKEN })
 
+const OWNER = 'detail54'
+const REPO = 'node-study'
+
 program
   .command('me')
   .description('Check my profile')
@@ -25,8 +28,8 @@ program
   .description('List issues with bug label')
   .action(async () => {
     const result = await octokit.rest.issues.listForRepo({
-      owner: 'detail54',
-      repo: 'node-study',
+      owner: OWNER,
+      repo: REPO,
       labels: 'bug',
     })
 
@@ -37,7 +40,11 @@ program
   .command('check-prs')
   .description('Check pull request status')
   .action(async () => {
-    console.log('Check Prs!!')
+    const rersult = await octokit.rest.pulls.list(() => ({
+      owner: OWNER,
+      repo: REPO,
+    }))
+    console.log(rersult)
   })
 
 program.parseAsync()
