@@ -1,3 +1,9 @@
+/* eslint-disable node/no-unsupported-features/node-builtins */
+require('dotenv').config()
+
+const { GITHUB_ACCESS_TOKEN } = process.env
+console.log('TOKEN:', GITHUB_ACCESS_TOKEN)
+
 const { program } = require('commander')
 
 program.version('0.0.1')
@@ -5,15 +11,15 @@ program.version('0.0.1')
 program
   .command('list-bugs')
   .description('List issues with bug label')
-  .action(() => {
+  .action(async () => {
     console.log('List bugs!')
   })
 
 program
   .command('check-prs')
   .description('Check pull request status')
-  .action(() => {
+  .action(async () => {
     console.log('Check Prs!!')
   })
 
-program.parse()
+program.parseAsync()
